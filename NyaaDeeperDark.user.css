@@ -37,10 +37,10 @@
 	"Ubuntu-Grey",
 	"Ubuntu-Purple",
 	"Orange",
-	"Jisho" /*,
-	"Custom" */
+	"Jisho",
+	"Custom"
 ]
-/*
+
 @var color mainColor "Custom main color" "#367bf0"
 @var color mainBackground "Custom main background" "#22242d"
 @var color secondBackground "Custom second background" "#383c4a"
@@ -60,7 +60,7 @@
 @var color colorPurple "Custom purple color" "#60459f"
 @var color colorPink "Custom pink color" "#fe9ead"
 @var color colorGray "Custom gray color" "#c3c3c3"
-*/
+
 ==/UserStyle== */
 
 @-moz-document domain("nyaa.si") {
@@ -428,7 +428,7 @@
 			--select-background: #212528;
 			--shadow: 0 1px 0.5px rgba(185, 186, 186, .04);
 			--even-entry-background: rgba(185, 186, 186, .05);
-		} /*
+		}
 		else if stylus-deepdark-style == "Custom" {
 			--main-color: mainColor;
 			--main-background: mainBackground;
@@ -440,7 +440,7 @@
 			--select-background: selectBackground;
 			--shadow: 0 1px 0.5px colorShadow;
 			--even-entry-background: colorEvenEntry;
-		} */
+		}
 	}
 
 	/*Changed text highlight*/
