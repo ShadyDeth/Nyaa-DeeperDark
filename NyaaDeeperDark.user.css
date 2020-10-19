@@ -40,6 +40,11 @@
 	"Jisho"
 ]
 
+@var select stylus-deepdark-comment "Comments" [
+	"Show",
+	"Hide"
+]
+
 ==/UserStyle== */
 
 @-moz-document domain("nyaa.si") {
@@ -652,10 +657,15 @@
 		color: var(--main-color) !important;
 	}
 	.table tbody tr a.comments {
-		background: rgba(0, 0, 0, 0.5) !important;
-		color: #FFF;
-		border: none;
-		margin-top: 1px;
+		if stylus-deepdark-comment == "Show" {
+			background: rgba(0, 0, 0, 0.5) !important;
+			color: #FFF !important;;
+			border: none !important;;
+			margin-top: 1px !important;;
+		}
+        if stylus-deepdark-comment == "Hide" {
+            display: none !important;
+		}
 	}
 	.hdr-link {
 		width: 56px !important;
@@ -720,9 +730,14 @@
 	.panel-footer .fa-magnet {
 		color: #F35 !important;
 	}
-	#comments {
-		padding-bottom: 10px;
-	}
+    #comments {
+        if stylus-deepdark-comment == "Show" {
+            padding-bottom: 10px !important;
+        }
+        if stylus-deepdark-comment == "Hide" {
+            display: none !important;
+        }
+    }
 	.comment-box {
 		margin-top: 20px;
 	}
