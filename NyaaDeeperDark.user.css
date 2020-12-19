@@ -3,7 +3,7 @@
 @description Combination of "DeepDark" by RaitaroH and "Nyaa.si Dark" by Coordinates
 @namespace github.com/ShadyDeth/Nyaa-DeeperDark
 @homepageURL https://github.com/ShadyDeth/Nyaa-DeeperDark
-@version 1.0.3
+@version 1.0.4
 @updateURL https://raw.githubusercontent.com/ShadyDeth/Nyaa-DeeperDark/master/NyaaDeeperDark.user.css
 @author ShadyDeth
 @license GNU-V3.0
@@ -40,10 +40,10 @@
 	"Jisho"
 ]
 
-@var select stylus-deepdark-comment "Comments" [
-	"Show",
-	"Hide"
-]
+@var checkbox hide-comments "Hide Comments" 0
+@var checkbox hide-fap "Hide Fap Link" 0
+
+
 
 ==/UserStyle== */
 
@@ -507,6 +507,11 @@
 		background: rgba(215, 235, 255, 0.1);
 		color: var(--main-color) !important;
 	}
+	if hide-fap {
+		li a[href="//sukebei.Nyaa.si"] {
+			display: none !important;
+		}
+	}
 	/* HEADER: Search and filters */
 	.input-group-btn:first-child>.btn, .input-group-btn:first-child>.btn-group, .btn-group {
 		margin-right: 4px;
@@ -657,13 +662,13 @@
 		color: var(--main-color) !important;
 	}
 	.table tbody tr a.comments {
-		if stylus-deepdark-comment == "Show" {
+		if hide-comments == "0" {
 			background: rgba(0, 0, 0, 0.5) !important;
 			color: #FFF !important;;
 			border: none !important;;
 			margin-top: 1px !important;;
 		}
-        if stylus-deepdark-comment == "Hide" {
+        if hide-comments == "1" {
             display: none !important;
 		}
 	}
