@@ -3,7 +3,7 @@
 @description Combination of "DeepDark" by RaitaroH and "Nyaa.si Dark" by Coordinates
 @namespace github.com/ShadyDeth/Nyaa-DeeperDark
 @homepageURL https://github.com/ShadyDeth/Nyaa-DeeperDark
-@version 1.0.4
+@version 1.0.5
 @updateURL https://raw.githubusercontent.com/ShadyDeth/Nyaa-DeeperDark/master/NyaaDeeperDark.user.css
 @author ShadyDeth
 @license GNU-V3.0
@@ -736,10 +736,10 @@
 		color: #F35 !important;
 	}
     #comments {
-        if stylus-deepdark-comment == "Show" {
+        if hide-comments == "0" {
             padding-bottom: 10px !important;
         }
-        if stylus-deepdark-comment == "Hide" {
+        if hide-comments == "1" {
             display: none !important;
         }
     }
