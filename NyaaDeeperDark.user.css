@@ -3,7 +3,7 @@
 @description Combination of "DeepDark" by RaitaroH and "Nyaa.si Dark" by Coordinates
 @namespace github.com/ShadyDeth/Nyaa-DeeperDark
 @homepageURL https://github.com/ShadyDeth/Nyaa-DeeperDark
-@version 1.0.5
+@version 1.0.6
 @updateURL https://raw.githubusercontent.com/ShadyDeth/Nyaa-DeeperDark/master/NyaaDeeperDark.user.css
 @author ShadyDeth
 @license GNU-V3.0
@@ -428,26 +428,26 @@
 	}
 
 	/*Body*/
-    body {
-        background: var(--second-background) !important;
-        color: var(--main-text) !important;
-    }
+	body {
+		background: var(--second-background) !important;
+		color: var(--main-text) !important;
+	}
 
-    /*Header*/
-    .navbar {
+	/*Header*/
+	.navbar {
 		background: var(--main-background) !important;
 		border: none !important;
 		border-top: 4px solid var(--main-color) !important;
 		box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.2);
-    }
-    .navbar-brand, .navbar-nav > li > a {
-        color: var(--main-text) !important;
-    }
-    .navbar-brand:hover, .navbar-nav > li > a:hover {
-        color: var(--main-color) !important;
-    }
-    .navbar-inverse .navbar-nav > .active > a, .navbar-inverse .navbar-nav > .active > a:hover, .navbar-inverse .navbar-nav > .active > a:focus {
-        background: var(--main-background) !important;
+	}
+	.navbar-brand, .navbar-nav > li > a {
+		color: var(--main-text) !important;
+	}
+	.navbar-brand:hover, .navbar-nav > li > a:hover {
+		color: var(--main-color) !important;
+	}
+	.navbar-inverse .navbar-nav > .active > a, .navbar-inverse .navbar-nav > .active > a:hover, .navbar-inverse .navbar-nav > .active > a:focus {
+		background: var(--main-background) !important;
 	}
 	.navbar-inverse .navbar-nav>.open>a, .navbar-inverse .navbar-nav>.open>a:hover, .navbar-inverse .navbar-nav>.open>a:focus {
 		background-color: var(--main-background) !important;
@@ -507,8 +507,9 @@
 		background: rgba(215, 235, 255, 0.1);
 		color: var(--main-color) !important;
 	}
+	/* Hide fap link on navbar */
 	if hide-fap {
-		li a[href="//sukebei.Nyaa.si"] {
+		li:nth-child(5):not(.navbar-right li:nth-child(5)) {
 			display: none !important;
 		}
 	}
@@ -664,12 +665,12 @@
 	.table tbody tr a.comments {
 		if hide-comments == "0" {
 			background: rgba(0, 0, 0, 0.5) !important;
-			color: #FFF !important;;
-			border: none !important;;
-			margin-top: 1px !important;;
+			color: #FFF !important;
+			border: none !important;
+			margin-top: 1px !important;
 		}
-        if hide-comments == "1" {
-            display: none !important;
+		if hide-comments == "1" {
+			display: none !important;
 		}
 	}
 	.hdr-link {
@@ -735,14 +736,14 @@
 	.panel-footer .fa-magnet {
 		color: #F35 !important;
 	}
-    #comments {
-        if hide-comments == "0" {
-            padding-bottom: 10px !important;
-        }
-        if hide-comments == "1" {
-            display: none !important;
-        }
-    }
+	#comments {
+		if hide-comments == "0" {
+			padding-bottom: 10px !important;
+		}
+		if hide-comments == "1" {
+			display: none !important;
+		}
+	}
 	.comment-box {
 		margin-top: 20px;
 	}
