@@ -3,7 +3,7 @@
 @description Combination of "DeepDark" by RaitaroH and "Nyaa.si Dark" by Coordinates
 @namespace github.com/ShadyDeth/Nyaa-DeeperDark
 @homepageURL https://github.com/ShadyDeth/Nyaa-DeeperDark
-@version 1.0.7
+@version 1.0.8
 @updateURL https://raw.githubusercontent.com/ShadyDeth/Nyaa-DeeperDark/master/NyaaDeeperDark.user.css
 @author ShadyDeth
 @license GNU-V3.0
@@ -509,7 +509,7 @@
 	}
 	/* Hide fap link on navbar */
 	if hide-fap {
-		li:nth-child(5):not(.navbar-right li:nth-child(5)) {
+		#navbar > ul:nth-child(1) > li:nth-child(5) {
 			display: none !important;
 		}
 	}
