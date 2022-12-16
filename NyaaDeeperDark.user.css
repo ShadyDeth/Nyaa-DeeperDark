@@ -3,7 +3,7 @@
 @description Combination of "DeepDark" by RaitaroH and "Nyaa.si Dark" by Coordinates
 @namespace github.com/ShadyDeth/Nyaa-DeeperDark
 @homepageURL https://github.com/ShadyDeth/Nyaa-DeeperDark
-@version 1.0.8
+@version 1.0.9
 @updateURL https://raw.githubusercontent.com/ShadyDeth/Nyaa-DeeperDark/master/NyaaDeeperDark.user.css
 @author ShadyDeth
 @license GNU-V3.0
@@ -40,10 +40,8 @@
 	"Jisho"
 ]
 
-@var checkbox hide-comments "Hide Comments" 0
-@var checkbox hide-fap "Hide Fap Link" 0
-
-
+@var checkbox hidecomments "Hide Comments" 0
+@var checkbox hidefap "Hide Fap Link" 0
 
 ==/UserStyle== */
 
@@ -432,19 +430,43 @@
 		background: var(--second-background) !important;
 		color: var(--main-text) !important;
 	}
+	body.dark > nav::after {
+		content: "Please toggle Nyaa's Dark Mode to Light Mode for DeeperDark to look best." !important;
+		white-space: pre !important; 
+		color: red !important;
+		font-size: 40px !important;
+		font-weight: bold !important;
+		display: flex !important;
+		align-items: center !important;
+		justify-content: center !important;
+	}
+	body:not(.dark) > footer {
+		display: none !important;
+	}
 
 	/*Header*/
 	.navbar {
 		background: var(--main-background) !important;
 		border: none !important;
-		border-top: 4px solid var(--main-color) !important;
-		box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.2);
+		box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.2) !important;
 	}
-	.navbar-brand, .navbar-nav > li > a {
+	.navbar-brand {
+		color: var(--main-color) !important;
+	}
+	.navbar-nav > li > a {
 		color: var(--main-text) !important;
+	}
+	.navbar-nav > li > a:hover {
+		background-color: var(--hover-background) !important;
 	}
 	.navbar-brand:hover, .navbar-nav > li > a:hover {
 		color: var(--main-color) !important;
+	}
+	#navbar > ul.nav.navbar-nav.navbar-right > li > a.dropdown-toggle.visible-lg.visible-sm.visible-xs {
+		color: var(--main-color) !important;
+	}
+	#navbar > ul.nav.navbar-nav.navbar-right > li > a.dropdown-toggle.visible-lg.visible-sm.visible-xs:hover {
+		background-color: var(--main-background) !important;
 	}
 	.navbar-inverse .navbar-nav > .active > a, .navbar-inverse .navbar-nav > .active > a:hover, .navbar-inverse .navbar-nav > .active > a:focus {
 		background: var(--main-background) !important;
@@ -452,73 +474,69 @@
 	.navbar-inverse .navbar-nav>.open>a, .navbar-inverse .navbar-nav>.open>a:hover, .navbar-inverse .navbar-nav>.open>a:focus {
 		background-color: var(--main-background) !important;
 	}
+	
 	/* HEADER: Dropdown menus */
 	.navbar-nav>li>.dropdown-menu, .navbar-right .dropdown-menu {
-		background: var(--select-background) !important;
-		margin-top: 22px;
-		border-radius: 6px;
-		border: none;
+		background: var(--hover-background) !important;
+		margin-top: 22px !important;
+		border-radius: 6px !important;
+		border: none !important;
 		overflow: visible !important;
-		padding: 3px;
-		left: 0;
-		right: auto;
+		padding: 3px !important;
+		left: 0 !important;
+		right: auto !important;
 	}
 	.navbar-nav>li>.dropdown-menu {
-		margin-top: 12px;
+		margin-top: 12px !important;
 	}
 	.dropdown-menu::before {
-		content: '';
-		width: 0;
-		height: 0;
-		border: 8px solid transparent;
-		position: absolute;
-		top: -16px;
-		left: 25px;
-		border-bottom: 8px solid #343b41;
+		content: '' !important;
+		width: 0 !important;
+		height: 0 !important;
+		border: 8px solid transparent !important;
+		position: absolute !important;
+		top: -16px !important;
+		left: 25px !important;
+		border-bottom: 8px solid var(--hover-background) !important;
 	}
 	.navbar-nav>li>.dropdown-menu a, .dropdown-menu li a {
-		padding: 6px 10px;
-		border-radius: 6px;
-		margin: 3px;
-		color: var(--main-color) !important;
-	}
-	.dropdown-menu li a[href="/logout"] {
-		background: #ee5050 !important;
+		padding: 6px 10px !important;
+		border-radius: 6px !important;
+		margin: 3px !important;
 		color: var(--main-text) !important;
 	}
-
 	.dropdown-menu li a[href="/logout"]:hover {
-		background: #c83232 !important;
-		color: var(--main-text) !important;
+		background: rgba(128,53,56,0.8) !important
 	}
 	.dropdown-menu li a:hover {
 		background: var(--second-background) !important;
 		color: var(--main-color) !important;
 	}
 	.dropdown-menu li a:focus {
-		background: rgba(215, 235, 255, 0.1);
+		background: rgba(215, 235, 255, 0.1) !important;
 		color: var(--main-text) !important;
-		outline: 0;
+		outline: 0 !important;
 	}
 	.dropdown-menu::-webkit-scrollbar {
-		width: 0px;
+		width: 0px !important;
 	}
 	.dropdown-menu>.active>a, .dropdown-menu>.active>a:hover, .dropdown-menu>.active>a:focus {
 		background: rgba(215, 235, 255, 0.1);
 		color: var(--main-color) !important;
 	}
 	/* Hide fap link on navbar */
-	if hide-fap {
+	if hidefap {
 		#navbar > ul:nth-child(1) > li:nth-child(5) {
 			display: none !important;
 		}
 	}
+	
 	/* HEADER: Search and filters */
 	.input-group-btn:first-child>.btn, .input-group-btn:first-child>.btn-group, .btn-group {
-		margin-right: 4px;
+		margin-right: 4px !important;
 	}
 	.btn-group.open .dropdown-toggle {
-		box-shadow: none;
+		box-shadow: none !important;
 	}
 	.bootstrap-select {
 		border: none !important;
@@ -530,7 +548,7 @@
 		background: var(--select-background) !important;
 		border: none;
 		border-radius: 4px !important;
-		color: var(--main-color) !important;
+		color: var(--main-text) !important;
 	}
 	.dropdown-toggle.btn-default:hover, .dropdown-toggle.btn-default:focus, .dropdown-toggle.btn-default:active, .dropdown-toggle.btn-default:active:hover {
 		background: var(--second-background) !important;
@@ -552,9 +570,9 @@
 		border: 1px solid rgba(0, 0, 0, 0.1);
 		border-radius: 4px !important;
 		color: var(--main-text) !important;
-		padding: 6px 12px;
-		height: auto;
-		margin-right: 3px;
+		padding: 6px 12px !important;
+		height: auto !important;
+		margin-right: 3px !important;
 	}
 	input:-webkit-autofill,
 	input:-webkit-autofill:hover,
@@ -595,54 +613,53 @@
 	.btn-primary:active, .btn-success:active, .btn-default:active {
 		color: var(--main-text) !important;
 		background: rgba(215, 235, 255, 0.30) !important;
-		box-shadow: none;
+		box-shadow: none !important;
 	}
 	.btn-primary:active:hover, .btn-success:active:hover, .btn-default:active:hover {
 		color: var(--main-text) !important;
 		box-shadow: none !important;
 	}
 	.dropdown-menu .divider {
-		margin: 0px 11px;
-		background: rgba(0, 0, 0, 0.3);
+		margin: 0px 11px !important;
+		background: rgba(0, 0, 0, 0.3) !important;
 	}
 	.glyphicon {
-		top: 10%;
+		top: 10% !important;
 	}
 	.alert-info {
 		background: rgba(117, 185, 255, .1) !important;
 		border: 1px solid rgba(117, 185, 255, .1) !important;
-		color: #FFF !important;
+		color: var(--main-text) !important;
 	}
-
 	.table, .table-bordered>thead>tr>th, .table-bordered>tbody>tr>th, .table-bordered>tfoot>tr>th, .table-bordered>thead>tr>td, .table-bordered>tbody>tr>td, .table-bordered>tfoot>tr>td {
-		border: none;
-		border-collapse: inherit;
+		border: none !important;
+		border-collapse: inherit !important;
 	}
 	.table {
-		margin-bottom: 0px;
-		overflow: hidden;
-		background: rgba(0, 0, 0, 0.2);
+		margin-bottom: 0px !important;
+		overflow: hidden !important;
+		background: rgba(0, 0, 0, 0.2) !important;
 	}
 	.table-responsive {
-		border-radius: 5px;
-		border: 0px solid rgba(0, 0, 0, 0.4);
+		border-radius: 5px !important;
+		border: 0px solid rgba(0, 0, 0, 0.4) !important;
 	}
 	.table thead {
 		background: var(--main-background) !important;
 		color: var(--main-text) !important;
-		border-bottom: 2px solid rgba(0, 0, 0, 0.4);
 	}
+	
 	/* BODY: Torrents */
 	.table tbody tr {
 		border-top: 1px solid rgba(0, 0, 0, 0.4);
-		padding: 5px;
+		padding: 5px !important;
 	}
 	.table tbody tr * {
 		background: none !important;
-		text-shadow: 0px 1px 1px rgba(0, 0, 0, 0.7);
+		/*text-shadow: 0px 1px 1px rgba(0, 0, 0, 0.7);*/
 	}
 	.table-hover>tbody>tr:hover {
-		background: none;
+		background: none !important;
 	}
 	.table-striped>tbody>tr.default {
 		background: var(--second-background) !important;
@@ -656,21 +673,32 @@
 	.table-striped>tbody>tr.danger, .panel-danger .panel-heading {
 		background: rgba(128, 53, 56, 0.5) !important;
 	}
+
 	/* BODY: Inset stuff */
 	table.torrent-list tbody tr td a, table.torrent-list tbody tr td a:visited, .pagination-page-info {
-		color: var(--main-text) !important;
+		color: var(--dimmer-text) !important;
 	}
 	table.torrent-list tbody tr td a:hover, .pagination-page-info {
 		color: var(--main-color) !important;
 	}
+	table.torrent-list td:nth-child(4),table. torrent-list td:nth-child(5), table.torrent-list td:nth-child(8) {
+		color: var(--dimmer-text) !important;
+	}
+	/* Test - Next Major Update
+	if customicons {
+		table.torrent-list tbody tr td img[src="/static/img/icons/nyaa/1_3.png"] {
+			content: url(https://i.imgur.com/zvqd3Cd.png) !important;
+			border-radius: 3px !important;
+		}
+	}*/
 	.table tbody tr a.comments {
-		if hide-comments == "0" {
+		if hidecomments == "0" {
 			background: rgba(0, 0, 0, 0.5) !important;
 			color: #FFF !important;
 			border: none !important;
 			margin-top: 1px !important;
 		}
-		if hide-comments == "1" {
+		if hidecomments == "1" {
 			display: none !important;
 		}
 	}
@@ -678,16 +706,10 @@
 		width: 56px !important;
 	}
 	.text-center {
-		font-weight: 600;
+		font-weight: 600 !important;
 	}
 	tbody .text-center {
-		text-align: right;
-	}
-	td:nth-child(6) {
-		color: #008000 !important;
-	}
-	td:nth-child(7) {
-		color: #F35 !important;
+		text-align: right !important;
 	}
 	.fa-download:hover {
 		color: #008000 !important;
@@ -697,39 +719,36 @@
 	}
 	/* BODY: Torrent Pages */
 	.panel {
-		background: rgba(0, 0, 0, 0.2);
-		text-shadow: 0px 1px 1px rgba(0, 0, 0, 0.5);
-		border: none;
-		box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.25);
+		background: rgba(0, 0, 0, 0.2) !important;
+		text-shadow: 0px 1px 1px rgba(0, 0, 0, 0.5) !important;
+		border: none !important;
+		box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.25) !important;
 	}
 	.panel-heading {
-		border: none;
-		box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.2);
+		border: none !important;
+		box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.2) !important;
 	}
 	.panel-default .panel-heading {
-		border: none;
-		background: rgba(215, 235, 255, 0.15);
-		color: #FFF;
+		border: none !important;
+		background: rgba(215, 235, 255, 0.15) !important;
+		color: var(--main-text) !important;
 	}
 	.panel-success .panel-heading {
-		color: #CEC;
+		color: var(--main-text) !important;
 	}
 	.panel-danger .panel-heading {
-		color: #FFF;
+		color: var(--main-text) !important;
 	}
 	.panel-body {
-		color: #FFF;
+		color: var(--dimmer-text) !important;
 	}
 	.panel-body a {
 		color: var(--main-color) !important;
 	}
 	.panel-footer {
 		background: rgba(215, 235, 255, 0.10);
-		color: #FFF;
+		color: var(--main-text) !important;
 		border: none;
-	}
-	.panel-footer a {
-		color: var(--main-color) !important;
 	}
 	.panel-footer .fa-download {
 		color: #008000 !important;
@@ -738,15 +757,15 @@
 		color: #F35 !important;
 	}
 	#comments {
-		if hide-comments == "0" {
+		if hidecomments == "0" {
 			padding-bottom: 10px !important;
 		}
-		if hide-comments == "1" {
+		if hidecomments == "1" {
 			display: none !important;
 		}
 	}
 	.comment-box {
-		margin-top: 20px;
+		margin-top: 20px !important;
 	}
 	#comments .panel-title {
 		color: var(--main-text) !important;
@@ -754,42 +773,43 @@
 	#comment, body>.container input:not(.btn), textarea, select.form-control {
 		background: var(--second-background) !important;
 		border: 1px solid rgba(215, 235, 255, 0.1) !important;
-		color: #FFF !important;
+		color: var(--dimmer-text) !important;
 	}
 	#comment:focus, body>.container input:not(.btn):focus, textarea:focus, select.form-control:focus {
 		outline: 0 !important;
-		color: #FFF;
+		color: var(--dimmer-text) !important;
 		border: 1px solid rgba(215, 235, 255, 0.1) !important;
 		box-shadow: none !important;
 		background: var(--hover-background) !important;
 	}
 	#comments .btn-sm {
 		background: var(--main-color) !important;
-		float: right;
-		padding: 10px 20px;
+		float: right !important;
+		padding: 10px 20px !important;
 		color: var(--main-text) !important;
 	}
 	.alert-warning {
-		background: #f3e1833b;
-		border-color: #f3e1833b;
-		color: #f3e183;
-		margin: 5px;
+		background: #f3e1833b !important;
+		border-color: #f3e1833b !important;
+		color: #f3e183 !important;
+		margin: 5px !important;
 	}
+	
 	/*PAGINATION*/
 	.pagination li a {
-		margin: 5px;
-		margin-top: 0px;
-		border-radius: 3px;
+		margin: 5px !important;
+		margin-top: 0px !important;
+		border-radius: 3px !important;
 		background: var(--main-background) !important;
 		color: var(--main-text) !important;
-		border: none;
+		border: none !important;
 	}
 	.pagination li a:focus {
 		background: var(--main-background) !important;
 		color: var(--main-text) !important;
 	}
 	.pagination li a:hover {
-		background: var(--hover-background) !important;
+		background: var(--main-color) !important;
 		color: var(--main-text) !important;
 	}
 	.pagination li.active a {
@@ -807,26 +827,22 @@
 		background: var(--main-background) !important;
 	}
 	.pagination li:first-child a, .pagination li:last-child a {
-		padding: 2px 8px;
-		margin-top: 4px;
+		padding: 2px 8px !important;
+		margin-top: 4px !important;
 	}
+	
 	/* RESPONSIVE FIXES */
 	@media (max-width: 1228px) {
 		.navbar-nav>li>.dropdown-menu, .navbar-right .dropdown-menu {
-			left: auto;
-			right: 0;
+			left: auto !important;
+			right: 0 !important;
 		}
 		.dropdown-menu::before {
-			right: 25px;
-			left: auto;
+			right: 25px !important;
+			left: auto !important;
 		}
 	}
-	footer > p:nth-child(1) {
-		display: none !important;
-	}
-	footer a {
-		color: var(--main-color) !important;
-	}
+	
 }
 
 @-moz-document regexp(".*nyaa.si/profile") {
@@ -843,7 +859,7 @@
 		border: none !important;
 	}
 	.nav > li > a:focus {
-		outline: 0;
+		outline: 0 !important;
 		background: var(--main-background) !important;
 	}
 	#profileTabs li:not(.active) {
@@ -877,8 +893,8 @@
 @-moz-document regexp(".*nyaa.si/help"), regexp(".*nyaa.si/rules"), regexp(".*nyaa.si/profile"), regexp(".*nyaa.si/upload") {
 	body > .container {
 		background: var(--main-background) !important;
-		border-radius: 10px;
-		margin-bottom: 20px;
+		border-radius: 10px !important;
+		margin-bottom: 20px !important;
 	}
 	body a {
 		color: var(--main-color) !important;
@@ -887,25 +903,25 @@
 
 @-moz-document regexp(".*nyaa.si/upload") {
 	.input-group .btn-default {
-		background: var(--main-color);
+		background: var(--main-color) !important;
 	}
 	ul.nav-tabs {
-		margin: 0;
-		border: none;
+		margin: 0 !important;
+		border: none !important;
 	}
 	.nav-tabs > li {
-		margin: 0;
+		margin: 0 !important;
 	}
 	.nav-tabs li a {
 		color: var(--main-text) !important;
-		border: none;
+		border: none !important;
 	}
 	.nav > li > a:focus {
-		outline: 0;
-		background: none;
+		outline: 0 !important;
+		background: none !important;
 	}
 	.nav-tabs li:not(.active) a:hover {
-		background: rgba(215, 235, 255, 0.05);
+		background: rgba(215, 235, 255, 0.05) !important;
 	}
 	.nav-tabs > li.active > a {
 		background: rgba(215, 235, 255, 0.1) !important;
@@ -913,20 +929,20 @@
 	}
 	.tab-content {
 		background: rgba(215, 235, 255, 0.1);
-		padding: 15px;
-		margin-bottom: 20px;
-		border-radius: 6px;
-		border-top-left-radius: 0px;
+		padding: 15px !important;
+		margin-bottom: 20px !important;
+		border-radius: 6px !important;
+		border-top-left-radius: 0px !important;
 	}
 	.well {
-		margin: 0;
+		margin: 0 !important;
 	}
 	form .row:last-child {
-		margin-top: -20px;
+		margin-top: -20px !important;
 	}
 	#description-markdown-target {
 		background: var(--second-background) !important;
-		border: none;
+		border: none !important;
 	}
 	.btn {
 		border: none !important;
