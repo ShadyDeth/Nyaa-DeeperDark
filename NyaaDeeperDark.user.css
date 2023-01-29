@@ -3,7 +3,7 @@
 @description Combination of "DeepDark" by RaitaroH and "Nyaa.si Dark" by Coordinates
 @namespace github.com/ShadyDeth/Nyaa-DeeperDark
 @homepageURL https://github.com/ShadyDeth/Nyaa-DeeperDark
-@version 1.0.9
+@version 1.0.10
 @updateURL https://raw.githubusercontent.com/ShadyDeth/Nyaa-DeeperDark/master/NyaaDeeperDark.user.css
 @author ShadyDeth
 @license GNU-V3.0
@@ -468,8 +468,11 @@
 	#navbar > ul.nav.navbar-nav.navbar-right > li > a.dropdown-toggle.visible-lg.visible-sm.visible-xs:hover {
 		background-color: var(--main-background) !important;
 	}
-	.navbar-inverse .navbar-nav > .active > a, .navbar-inverse .navbar-nav > .active > a:hover, .navbar-inverse .navbar-nav > .active > a:focus {
+	.navbar-inverse .navbar-nav > .active > a, .navbar-inverse .navbar-nav > .active > a:focus {
 		background: var(--main-background) !important;
+	}
+	.navbar-inverse .navbar-nav > .active > a:hover {
+		background: var(--hover-background) !important;
 	}
 	.navbar-inverse .navbar-nav>.open>a, .navbar-inverse .navbar-nav>.open>a:hover, .navbar-inverse .navbar-nav>.open>a:focus {
 		background-color: var(--main-background) !important;
@@ -902,7 +905,7 @@
 }
 
 @-moz-document regexp(".*nyaa.si/upload") {
-	.input-group .btn-default {
+	.input-group-btn:first-child>.btn, input[type="submit"] {
 		background: var(--main-color) !important;
 	}
 	ul.nav-tabs {
